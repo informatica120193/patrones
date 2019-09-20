@@ -31,18 +31,29 @@ public class Consignacion extends ManejadorTransaccion{
             this.getSucesor().realizarTransaccion(transaccion);
         }
     }
-    
+
+    /**
+     * Se encarga de realizar la transaccion una vez sea notificado que la caja se ha liberado
+     * @param o
+     * @param arg
+     */
      @Override
     public void update(Observable o, Object arg) {
         try {
             realizarOperacion((Caja) arg);
         } catch (Exception ex) {
-            Logger.getLogger(Retiro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Consignacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Retorna un runnable para ejecutar la transaccion en un hilo aparte del hilo principal
+     * @param caja
+     * @return
+     * @throws Exception
+     */
      private Runnable realizarOperacion(Caja caja)  throws Exception {
-           
+
         return () -> {
             this.getPoolCaja().liberarCaja(caja);
         };

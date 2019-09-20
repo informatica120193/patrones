@@ -7,11 +7,17 @@ package clases;
 
 /**
  *
+ * Clase encargada de servir como fachada para el acceso al primer eslabon de la cadena de responsabilidad
  * @author estudiantes
  */
 public class FachadaTransaccion {
-    private ManejadorTransaccion retiro; 
-    
+    private ManejadorTransaccion retiro;
+
+    /**
+     * Transmite al cliente con su transaccion al primer eslabon de la cadena de responsabilidad
+     * @param transaccion
+     * @throws Exception
+     */
     public void realizarTransaccion(String transaccion) throws Exception {
         retiro = new Retiro();
         retiro.realizarTransaccion(transaccion);

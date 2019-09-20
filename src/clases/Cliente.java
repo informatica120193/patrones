@@ -18,7 +18,7 @@ public class Cliente {
         
        try {
             while (true) {
-                
+                //Se crearan clientes y aleatoriamente se seleccionara la transacccion a realizar
                 Thread t = new Thread(() -> {
                     try {
                         Random rand = new Random();

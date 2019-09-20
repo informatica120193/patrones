@@ -7,6 +7,7 @@ package clases;
 
 /**
  *
+ * Administra las funciones que debe tener la caja
  * @author estudiantes
  */
 public class Caja{
